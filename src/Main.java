@@ -12,6 +12,7 @@ public class Main {
         System.out.println("Please enter the subnet mask CIDR Prefix Notation value:");
         System.out.println("(Example: for a /27 prefix input 27)");
         cidrPrefix = getHostBits.nextDouble();
+        cidrPrefix = Math.abs(cidrPrefix);
 
         findNumOfHostIPAddresses();
         output();
