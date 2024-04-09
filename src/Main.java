@@ -2,8 +2,7 @@
 import java.util.Scanner;
 
 public class Main {
-    public static double cidrPrefix = 0.0;
-    public static int howManyHosts = 0, localUsableHostBits = 0, howManyHostsMin2 = 0;
+    public static int howManyHosts = 0, localUsableHostBits = 0, howManyHostsMin2 = 0, cidrPrefix = 0;
     public static final double base2 = 2.0, totalBits = 32.0;
 
     public static void main(String[] args) {
@@ -11,7 +10,7 @@ public class Main {
 
         System.out.println("Please enter the subnet mask CIDR Prefix Notation value:");
         System.out.println("(Example: for a /27 prefix input 27)");
-        cidrPrefix = getHostBits.nextDouble();
+        cidrPrefix = getHostBits.nextInt();
         cidrPrefix = Math.abs(cidrPrefix);
 
         findNumOfHostIPAddresses();
@@ -26,7 +25,7 @@ public class Main {
         return howManyHostsMin2;
     }
     public static void output(){
-        System.out.println("With "+localUsableHostBits+" host bits you have enough IP addresses for "+howManyHostsMin2+" host devices.");
+        System.out.println("With a /"+cidrPrefix+" subnet you have "+localUsableHostBits+" host bits and enough IP addresses for "+howManyHostsMin2+" host devices.");
         System.out.println("2 of the "+howManyHostsMin2+" IPs have been set a side for the Network ID and Broadcast IP.");
     }
 }
