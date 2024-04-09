@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static double cidrPrefix = 0.0;
-    public static int howManyHosts = 0, localUsableHostBits = 0;
+    public static int howManyHosts = 0, localUsableHostBits = 0, howManyHostsMin2 = 0;
     public static final double base2 = 2.0, totalBits = 32.0;
 
     public static void main(String[] args) {
@@ -21,10 +21,11 @@ public class Main {
         localUsableHostBits = (int)(totalBits - cidrPrefix);
         double localVar = Math.pow(base2, localUsableHostBits) ;
         howManyHosts = (int)localVar;
-        return howManyHosts - 2;
+        howManyHostsMin2 = howManyHosts - 2;
+        return howManyHostsMin2;
     }
     public static void output(){
-        System.out.println("With "+localUsableHostBits+" host bits you have enough IP addresses for "+howManyHosts+" host devices.");
-        System.out.println("2 of the "+howManyHosts+" IPs have been set a side for the Network ID and Broadcast IP.");
+        System.out.println("With "+localUsableHostBits+" host bits you have enough IP addresses for "+howManyHostsMin2+" host devices.");
+        System.out.println("2 of the "+howManyHostsMin2+" IPs have been set a side for the Network ID and Broadcast IP.");
     }
 }
