@@ -16,7 +16,7 @@ public class Main {
         findNumOfHostIPAddresses();
         output();
     }
-    //1) How many Hosts
+    //1) How many Hosts based on CIDR/
     public static int findNumOfHostIPAddresses(){
         localUsableHostBits = (int)(totalBits - cidrPrefix);
         double localVar = Math.pow(base2, localUsableHostBits) ;
